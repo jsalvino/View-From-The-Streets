@@ -44,8 +44,8 @@ flickrWidget.searchPhotos = function() {
 	$('header form').on('submit', function(evnt) {
 		$('html,body').animate({scrollTop: $('#image-gallery').offset().top},2000);
 		evnt.preventDefault();  //to stop page from refreshing page upon submit
-		$('.credits').addClass('animated fadeOut');
-		$('#button').delay(2000).toggleClass('hide');
+		$('.credits').addClass('fadeOut');
+		$('#button').addClass('fadeIn').toggleClass('hide');
 		var searchQuery = $('.query').val();
 		flickrWidget.getInfo(searchQuery);
 	}); //end submit function
@@ -57,9 +57,10 @@ flickrWidget.init = function() {
 }; //end init function
 
 $('#button').on('click', function(evnt) {
+	$('html,body').animate({scrollTop: $('#test').offset().top},1000);
 	$('#button').toggleClass('hide');
-	// evnt.preventDefault();
-});
+	$('.credits').removeClass('fadeOut').addClass('fadeIn');
+}); // end on click function
 
 $(document).ready(function(){
   flickrWidget.init();
